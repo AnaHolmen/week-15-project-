@@ -13,7 +13,7 @@ export const NewRoomForm = (props) => {
     e.preventDefault();
 
     if (name && area !== "") {
-      props.onAddRoom({ name, area });
+      props.onAddHouse({ name, area });
       setName("");
       setArea("");
     } else {
