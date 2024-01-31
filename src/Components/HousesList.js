@@ -61,7 +61,7 @@ export class HousesList extends React.Component {
         ))}
         <div>
           <h2>Add New House</h2>
-          <NewRoomForm onAddRoom={this.addNewHouse} />
+          <NewRoomForm onAddHouse={this.addNewHouse} />
         </div>
       </div>
     );
