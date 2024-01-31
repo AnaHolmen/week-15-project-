@@ -3,15 +3,20 @@ import { House } from "./House";
 import { houseApi } from "../rest/HouseApi.js";
 import { NewRoomForm } from "./NewRoomForm";
 
+
+
+
+// HousesList component manages the state and methods for house data
 export class HousesList extends React.Component {
   state = {
     houses: [],
   };
 
   componentDidMount() {
-    this.fetchHouses();
+    this.fetchHouses(); // Initial data fetch on component mount
   }
 
+  // Fetches house data from API and updates state
   fetchHouses = async () => {
     try {
       const houses = await houseApi.get();
@@ -21,6 +26,7 @@ export class HousesList extends React.Component {
     }
   };
 
+  // Adds a new house to the API and updates state
   addNewHouse = async (newHouse) => {
     try {
       await houseApi.post(newHouse);
@@ -30,6 +36,7 @@ export class HousesList extends React.Component {
     }
   };
 
+  // Deletes a house from the API and updates state
   deleteHouse = async (houseId) => {
     try {
       await houseApi.delete(houseId);
@@ -39,6 +46,7 @@ export class HousesList extends React.Component {
     }
   };
 
+  // Updates a house in the API and updates state
   updateHouse = async (updatedHouse) => {
     try {
       await houseApi.put(updatedHouse);
@@ -47,7 +55,8 @@ export class HousesList extends React.Component {
       console.error("Error updating house:", error);
     }
   };
-
+ 
+  // Renders the list of houses and the form to add a new house
   render() {
     return (
       <div className="house-list">
@@ -60,8 +69,8 @@ export class HousesList extends React.Component {
           </div>
         ))}
         <div>
-          <h2>Add New House</h2>
-          <NewRoomForm onAddRoom={this.addNewHouse} />
+          
+          <NewRoomForm onAddRoom={this.addNewHouse} houseTitle={true} />
         </div>
       </div>
     );
