@@ -71,6 +71,7 @@ export class HousesList extends React.Component {
         <div>
           
           <NewRoomForm onAddRoom={this.addNewHouse} houseTitle={true} />
+
         </div>
       </div>
     );
