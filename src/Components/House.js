@@ -1,9 +1,12 @@
 import React from "react";
 import { NewRoomForm } from "./NewRoomForm";
 
+// Define the House component.
 export const House = (props) => {
+  // Destructure the house and updateHouse props. These are passed from the parent component.
   const { house, updateHouse } = props;
 
+  // Define the deleteRoom function.
   const deleteRoom = (roomId) => {
     const updatedHouse = {
       ...house,
@@ -12,6 +15,7 @@ export const House = (props) => {
     updateHouse(updatedHouse);
   };
 
+  // Define the addNewRoom function.
   const addNewRoom = (newRoom) => {
     const updatedHouse = {
       ...house,
@@ -20,6 +24,7 @@ export const House = (props) => {
     updateHouse(updatedHouse);
   };
 
+  // Define the Rooms component.
   const Rooms = () => (
     <ul>
       {house.rooms.map((room, index) => (
@@ -31,6 +36,7 @@ export const House = (props) => {
     </ul>
   );
 
+  // Render the House component. This includes the house name, the Rooms component, and the NewRoomForm component.
   return (
     <div>
       <h1>{house.name}</h1>
